@@ -23,15 +23,17 @@ public class EmpWageCompute {
         }
 
         int totalWage = totalWorkingHour * empWagePerHourOfFirm;
+
         System.out.println("Company Name: " + firmName + ", " + "Total Wage: " + totalWage + ", " + ", " + "Working Days: " +
                 +totalWorkingDay + ", " + "Working Hour: " + totalWorkingHour + ", " + "Employee Wage per Hour: " + empWagePerHourOfFirm);
     }
 
     public static void main(String[] args) {
 
-        calculateWage("TCS", 150, 24, 700);
-        calculateWage("HCL", 100, 22, 400);
-        calculateWage("IBM", 120, 25, 500);
-        calculateWage("Dell", 100, 20, 200);
+        EmpWageCompute emp = new EmpWageCompute();
+        emp.calculateWage("TCS", 150, 24, 700);
+        emp.calculateWage("HCL", 100, 22, 400);
+        emp.calculateWage("IBM", 120, 25, 500);
+        emp.calculateWage("Dell", 100, 20, 200);
     }
 }
