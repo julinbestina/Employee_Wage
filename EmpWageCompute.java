@@ -1,9 +1,27 @@
 package com.bridgelabz.empwage;
 
-public class EmpWageCompute {
-    public static void calculateWage(String firmName, int totalWorkingHourOfFirm, int totalWorkingDayOfFirm, int empWagePerHourOfFirm) {
+import java.util.Arrays;
 
-        int empHour, totalWorkingHour = 0, totalWorkingDay = 0;
+public class EmpWageCompute {
+    public int totalWorkingDayOfFirm;
+    public int totalWorkingHourOfFirm;
+    public int empWagePerHourOfFirm;
+    public String firmName;
+    public int totalWage, totalWorkingHour = 0, totalWorkingDay = 0;
+
+
+    public EmpWageCompute(int totalWorkingHourOfFirm, int totalWorkingDayOfFirm, int empWagePerHourOfFirm, String firmName) {
+
+        this.totalWorkingHourOfFirm = totalWorkingHourOfFirm;
+        this.totalWorkingDayOfFirm = totalWorkingDayOfFirm;
+        this.empWagePerHourOfFirm = empWagePerHourOfFirm;
+        this.firmName = firmName;
+    }
+
+
+    public void calculateWage() {
+
+        int empHour;
 
         while (totalWorkingHour <= totalWorkingHourOfFirm && totalWorkingDay < totalWorkingDayOfFirm) {
             totalWorkingDay++;
@@ -22,18 +40,12 @@ public class EmpWageCompute {
             totalWorkingHour += empHour;
         }
 
-        int totalWage = totalWorkingHour * empWagePerHourOfFirm;
+        totalWage = totalWorkingHour * empWagePerHourOfFirm;
 
         System.out.println("Company Name: " + firmName + ", " + "Total Wage: " + totalWage + ", " + ", " + "Working Days: " +
-                +totalWorkingDay + ", " + "Working Hour: " + totalWorkingHour + ", " + "Employee Wage per Hour: " + empWagePerHourOfFirm);
+                totalWorkingDay + ", " + "Working Hour: " + totalWorkingHour + ", " + "Employee Wage per Hour: " +
+                + empWagePerHourOfFirm);
     }
 
-    public static void main(String[] args) {
-
-        EmpWageCompute emp = new EmpWageCompute();
-        emp.calculateWage("TCS", 150, 24, 700);
-        emp.calculateWage("HCL", 100, 22, 400);
-        emp.calculateWage("IBM", 120, 25, 500);
-        emp.calculateWage("Dell", 100, 20, 200);
-    }
 }
+
