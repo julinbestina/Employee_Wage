@@ -1,6 +1,6 @@
 package com.bridgelabz.empwage;
 
-public class CompanyEmpWage {
+public interface CompanyEmpWage {
 
     public static void main(String[] args) {
 

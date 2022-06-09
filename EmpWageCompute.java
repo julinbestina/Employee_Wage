@@ -2,7 +2,7 @@ package com.bridgelabz.empwage;
 
 import java.util.Arrays;
 
-public class EmpWageCompute {
+public class EmpWageCompute implements IEmpWage {
     public int totalWorkingDayOfFirm;
     public int totalWorkingHourOfFirm;
     public int empWagePerHourOfFirm;
