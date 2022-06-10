@@ -1,19 +1,25 @@
 package com.bridgelabz.empwage;
 
-public interface CompanyEmpWage {
+import java.util.ArrayList;
+import java.util.Arrays;
 
-    public static void main(String[] args) {
+public class CompanyEmpWage<E> {
 
+    public static <E> void main(String[] args) {
+
+        ArrayList<Integer> wage = new ArrayList<>();
         EmpWageCompute[] comp = {new EmpWageCompute(100, 20, 200, "Dell"),
                 new EmpWageCompute(120, 25, 500, "IBM"),
                 new EmpWageCompute(100, 22, 400, "HCL"),
                 new EmpWageCompute(150, 24, 700, "TCS")};
 
         for (int i = 0; i < comp.length; i++) {
-            comp[i].calculateWage();
+            wage.add(comp[i].calculateWage());
+            System.out.println(comp[i].toString());
         }
 
     }
-
 }
+
+
 

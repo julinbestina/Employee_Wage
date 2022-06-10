@@ -1,8 +1,6 @@
 package com.bridgelabz.empwage;
 
-import java.util.Arrays;
-
-public class EmpWageCompute implements IEmpWage {
+public class EmpWageCompute  implements IEmpWage  {
     public int totalWorkingDayOfFirm;
     public int totalWorkingHourOfFirm;
     public int empWagePerHourOfFirm;
@@ -19,7 +17,7 @@ public class EmpWageCompute implements IEmpWage {
     }
 
 
-    public void calculateWage() {
+    public int calculateWage() {
 
         int empHour;
 
@@ -41,11 +39,18 @@ public class EmpWageCompute implements IEmpWage {
         }
 
         totalWage = totalWorkingHour * empWagePerHourOfFirm;
+        return totalWage;
 
-        System.out.println("Company Name: " + firmName + ", " + "Total Wage: " + totalWage + ", " + ", " + "Working Days: " +
-                totalWorkingDay + ", " + "Working Hour: " + totalWorkingHour + ", " + "Employee Wage per Hour: " +
-                + empWagePerHourOfFirm);
     }
 
+    @Override
+    public String toString() {
+        return "EmpWageCompute{" +
+                "firmName='" + firmName + '\'' +
+                ", totalWage=" + totalWage +
+                ", totalWorkingHour=" + totalWorkingHour +
+                ", totalWorkingDay=" + totalWorkingDay +
+                '}';
+    }
 }
 
