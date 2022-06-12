@@ -7,7 +7,6 @@ public class EmpWageCompute implements IEmpWage {
     public int totalWorkingHourOfFirm;
     public int empWagePerHourOfFirm;
     public String firmName;
-    public int totalWage, totalWorkingHour = 0, totalWorkingDay = 0;
 
 
     public EmpWageCompute(int totalWorkingHourOfFirm, int totalWorkingDayOfFirm, int empWagePerHourOfFirm, String firmName) {
@@ -18,11 +17,13 @@ public class EmpWageCompute implements IEmpWage {
         this.firmName = firmName;
     }
 
+    Map<String, Integer> map = new LinkedHashMap<String, Integer>();
+
     public void calculateWage() {
 
-
+        int totalWage, totalWorkingHour = 0, totalWorkingDay = 0;
         int empHour, dailyWage;
-        Map<String, Integer> map = new LinkedHashMap<String, Integer>();
+
 
         while (totalWorkingHour <= totalWorkingHourOfFirm && totalWorkingDay < totalWorkingDayOfFirm) {
             totalWorkingDay++;
@@ -47,21 +48,13 @@ public class EmpWageCompute implements IEmpWage {
         totalWage = totalWorkingHour * empWagePerHourOfFirm;
         map.put("TotalWage", totalWage);
 
-        for (Map.Entry m : map.entrySet()) {
-            System.out.println(m.getKey() + " " + m.getValue());
-        }
-
     }
 
-
-    @Override
-    public String toString() {
-        return
-                "firmName='" + firmName + '\'' +
-                        ", totalWage=" + totalWage +
-                        ", totalWorkingHour=" + totalWorkingHour +
-                        ", totalWorkingDay=" + totalWorkingDay;
+    public int getTotalWage(String key) {
+        return map.get(key);
     }
 
 }
+
+
 
