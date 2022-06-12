@@ -1,6 +1,8 @@
 package com.bridgelabz.empwage;
 
-public class EmpWageCompute  implements IEmpWage  {
+import java.util.*;
+
+public class EmpWageCompute implements IEmpWage {
     public int totalWorkingDayOfFirm;
     public int totalWorkingHourOfFirm;
     public int empWagePerHourOfFirm;
@@ -16,10 +18,11 @@ public class EmpWageCompute  implements IEmpWage  {
         this.firmName = firmName;
     }
 
+    public void calculateWage() {
 
-    public int calculateWage() {
 
-        int empHour;
+        int empHour, dailyWage;
+        Map<String, Integer> map = new LinkedHashMap<String, Integer>();
 
         while (totalWorkingHour <= totalWorkingHourOfFirm && totalWorkingDay < totalWorkingDayOfFirm) {
             totalWorkingDay++;
@@ -36,21 +39,29 @@ public class EmpWageCompute  implements IEmpWage  {
             }
 
             totalWorkingHour += empHour;
+            dailyWage = empHour * empWagePerHourOfFirm;
+            map.put("Day " + totalWorkingDay, dailyWage);
+
         }
 
         totalWage = totalWorkingHour * empWagePerHourOfFirm;
-        return totalWage;
+        map.put("TotalWage", totalWage);
+
+        for (Map.Entry m : map.entrySet()) {
+            System.out.println(m.getKey() + " " + m.getValue());
+        }
 
     }
+
 
     @Override
     public String toString() {
-        return "EmpWageCompute{" +
+        return
                 "firmName='" + firmName + '\'' +
-                ", totalWage=" + totalWage +
-                ", totalWorkingHour=" + totalWorkingHour +
-                ", totalWorkingDay=" + totalWorkingDay +
-                '}';
+                        ", totalWage=" + totalWage +
+                        ", totalWorkingHour=" + totalWorkingHour +
+                        ", totalWorkingDay=" + totalWorkingDay;
     }
+
 }
 

@@ -1,5 +1,7 @@
 package com.bridgelabz.empwage;
 
+import java.util.ArrayList;
+
 public interface IEmpWage {
-    public int calculateWage();
+    public void calculateWage();
 }
